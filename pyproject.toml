@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "nonebot_plugin_drawer"
+name = "nonebot-plugin-drawer"
 version = "0.0.1"
 description = "适用于 Nonebot2 的AI画画插件"
 authors = ["baicai <ai-lab@foxmail.com>"]
