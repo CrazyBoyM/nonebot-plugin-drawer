@@ -14,3 +14,6 @@ wenxin_ak = "xxxxxxxxxxxxxxxx"
 wenxin_sk = "xxxxxxxxxxxxxxxx"
 ```
 文心的ak和sk申请链接：https://wenxin.baidu.com/younger/apiDetail?id=20008
+### 使用方法
+当前支持 "油画", "水彩画", "中国画", 主要擅长风景写意画，请尽量给定比较明确的意象  
+如：油画 江上落日与晚霞
