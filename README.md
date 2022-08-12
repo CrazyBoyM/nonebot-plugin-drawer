@@ -17,3 +17,5 @@ wenxin_sk = "xxxxxxxxxxxxxxxx"
 ### 使用方法
 当前支持 "油画", "水彩画", "中国画", 主要擅长风景写意画，请尽量给定比较明确的意象  
 如：油画 江上落日与晚霞
+
+![51addc86ce22c5ff99a12b36cd5834c](https://user-images.githubusercontent.com/35400185/184457437-e22e3f84-69bd-467b-b158-2e3dccce00c1.jpg)
