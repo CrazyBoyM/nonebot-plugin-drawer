@@ -31,7 +31,7 @@ async def get_taskId(access_token, text, style):
     resp = await client.post(url, data=payload)
     if resp.json()['code'] == 0: # 请求成功
       return resp.json()['data']['taskId']
-    return -1 # 请求失败
+    return resp.json()['msg'] # 请求失败
 
 # 获取绘画的结果
 async def get_img(access_token, taskId):
@@ -52,5 +52,5 @@ async def get_img(access_token, taskId):
         await asyncio.sleep(10)
         return await get_img(access_token, taskId)
       
-    return -1 # 请求失败
+    return resp.json()['msg'] # 请求失败
   

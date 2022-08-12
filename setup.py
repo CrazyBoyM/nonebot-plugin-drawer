@@ -2,7 +2,7 @@ from setuptools import Extension, dist, find_packages, setup
 
 setup(
     name='nonebot-plugin-drawer',
-    version='0.0.1',
+    version='0.0.2',
     description='适用于 Nonebot2 的AI画画插件',
     long_description='适用于 Nonebot2 的AI画画插件',
     keywords='computer art',
