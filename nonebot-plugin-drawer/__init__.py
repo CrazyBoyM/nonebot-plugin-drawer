@@ -16,10 +16,15 @@ async def handle_first_receive(matcher: Matcher, command = RawCommand(), args = 
     print(command) # 匹配结果
     print(args)
     print("##############")
-    if command != '画画':
-        style = command
+    if command != '画画帮助':
+        style = '油画' # 绘画时style默认为油画
+        style_list = ['油画', '水彩画', '中国画']
+        for keyword in style_list:
+            if keyword in command:
+                style = keyword
+                break  
         text = args
-        await matcher.send(f'开始创作主题为{text}的{style}(预计两分钟)')
+        await matcher.send(f'AI开始创作主题为{text}的{style}(预计两~五分钟)...')
         access_token = await get_token()
         print(access_token)
         taskId = await get_taskId(access_token, text, style)
