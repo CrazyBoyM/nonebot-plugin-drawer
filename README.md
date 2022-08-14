@@ -19,5 +19,3 @@ wenxin_sk = "xxxxxxxxxxxxxxxx"
 如：油画 江上落日与晚霞
 
 ![51addc86ce22c5ff99a12b36cd5834c](https://user-images.githubusercontent.com/35400185/184457437-e22e3f84-69bd-467b-b158-2e3dccce00c1.jpg)
-
-![3a83453d5d28d1eedf0a0ddb5c90d29](https://user-images.githubusercontent.com/35400185/184457906-4c1c656f-d125-49c6-8923-f5cfc2898d87.jpg)
