@@ -6,7 +6,7 @@
 nb plugin install nonebot-plugin-drawer
 ### 通过pip安装
 1.pip install nonebot-plugin-drawer 进行安装  
-2.在bot.py添加nonebot.load_plugin('nonebot-plugin-drawer')
+2.在bot.py添加nonebot.load_plugin('nonebot_plugin_drawer')
 ### 配置env.*
 请在env.*配置文件中加入如下两行
 ```
