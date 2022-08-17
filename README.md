@@ -3,8 +3,8 @@
 
 
 ### 前提: nonebot2的部署
-这里推荐两篇机器人部署教程
-1.https://blog.csdn.net/weixin_47113651/article/details/121353191
+这里推荐两篇机器人部署教程  
+1.https://blog.csdn.net/weixin_47113651/article/details/121353191  
 2.https://zhuanlan.zhihu.com/p/371264976
 ### 通过nb-cli安装（推荐）
 ```
