@@ -22,3 +22,7 @@ cd_time = 120 # 技能冷却时间，以秒为单位
 ### 使用方法
 当前支持 "油画", "水彩画", "中国画", 主要擅长风景写意画，请尽量给定比较明确的意象  
 如：油画 江上落日与晚霞
+
+![3a83453d5d28d1eedf0a0ddb5c90d29](https://user-images.githubusercontent.com/35400185/185073989-d4cd1118-cddb-4588-a210-b6d001a049f1.jpg)
+
+![8887badee1c74c8488b613e4ceb83c2](https://user-images.githubusercontent.com/35400185/185074011-49b7bad1-e7d3-4385-afd5-a82163b0eebc.jpg)
