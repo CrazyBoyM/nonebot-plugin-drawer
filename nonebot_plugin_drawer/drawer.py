@@ -29,6 +29,8 @@ async def get_taskId(access_token, text, style):
   } # 请求参数
   async with httpx.AsyncClient(verify=False, timeout=None) as client:
     resp = await client.post(url, data=payload)
+    data = resp.json()
+    print(data)
     if resp.json()['code'] == 0: # 请求成功
       return resp.json()['data']['taskId']
     return resp.json()['msg'] # 请求失败
@@ -42,8 +44,9 @@ async def get_img(access_token, taskId):
   } # 请求参数，taskId是绘画的任务id
   async with httpx.AsyncClient(verify=False, timeout=None) as client:
     resp = await client.post(url, data=payload)
-    data = resp.json()['data']
+    data = resp.json()
     print(data)
+    data = resp.json()['data']
     if resp.json()['code'] == 0: # 请求成功
       if data['status'] == 1: # 绘画完成
         return data['imgUrls']
