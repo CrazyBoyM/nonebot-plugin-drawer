@@ -33,9 +33,18 @@ async def _(matcher: Matcher, event: GroupMessageEvent, command = RawCommand(), 
         await matcher.send(f'文心AI开始绘制主题为{text}的{style}(预计两~五分钟)...')
         try:
             access_token = await get_token()
+            
             taskId = await get_taskId(access_token, text, style)
+            if taskId is None:
+                matcher.finish(f'无法绘制主题为{text}的{style}!')
+                return
+        
             await asyncio.sleep(70) # 模型画画大概要70秒，等待一会儿
             images = await get_img(access_token, taskId)
+            if images is None:
+                matcher.finish(f'无法绘制主题为{text}的{style}!')
+                return
+            
             msg = Message(f'文心原创绘画：主题为{text}的{style}') \
                     + MessageSegment.image(images[0]['image']) \
                     + MessageSegment.image(images[1]['image']) \

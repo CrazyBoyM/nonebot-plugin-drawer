@@ -33,7 +33,10 @@ async def get_taskId(access_token, text, style):
     print(data)
     if resp.json()['code'] == 0: # 请求成功
       return resp.json()['data']['taskId']
-    return resp.json()['msg'] # 请求失败
+    
+    print(f'绘画任务失败,返回msg: {data["msg"]}') # 请求失败的消息提示
+    return -1
+    
 
 # 获取绘画的结果
 async def get_img(access_token, taskId):
@@ -48,12 +51,13 @@ async def get_img(access_token, taskId):
     print(data)
     data = resp.json()['data']
     if resp.json()['code'] == 0: # 请求成功
-      if data['status'] == 1: # 绘画完成
+      if data['status'] == 1: # status为1，表明绘画完成
         return data['imgUrls']
       else:
         # 10s后再次请求
         await asyncio.sleep(10)
         return await get_img(access_token, taskId)
-      
-    return resp.json()['msg'] # 请求失败
+    
+    print(f'绘画任务失败,返回msg: {data["msg"]}') # 请求失败的消息提示    
+    return -1
   
