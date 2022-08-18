@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "nonebot-plugin-drawer"
-version = "0.2.7"
+version = "0.3.1"
 description = "适用于 Nonebot2 的AI画画插件(对接文心大模型API)"
 authors = ["CrazyBoyM <ai-lab@foxmail.com>"]
 license = "MIT License"

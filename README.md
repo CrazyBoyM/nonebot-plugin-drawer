@@ -20,7 +20,8 @@ nb plugin install nonebot-plugin-drawer
 ```
 wenxin_ak = "xxxxxxxxxxxxxxxx"
 wenxin_sk = "xxxxxxxxxxxxxxxx"
-cd_time = 120 # 技能冷却时间，以秒为单位
+cd_time = 300 # 技能冷却时间，以秒为单位
+image_count: int = 3  # 画画的图片数量
 ```
 文心的ak和sk申请链接：https://wenxin.baidu.com/younger/apiDetail?id=20008
 ### 使用方法

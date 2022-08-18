@@ -61,4 +61,3 @@ async def get_img(access_token, taskId):
     
     print(f'绘画任务失败,返回msg: {data["msg"]}') # 请求失败的消息提示    
     return None
-  
