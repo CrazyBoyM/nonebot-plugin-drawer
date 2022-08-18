@@ -17,7 +17,8 @@ async def get_token():
         'Content-Type': 'application/x-www-form-urlencoded'
       }
     )
-    return resp.json()['data']
+    access_token = resp.json()['data']
+    return access_token
 
 # 获取绘画的任务id
 async def get_taskId(access_token, text, style):
@@ -35,7 +36,7 @@ async def get_taskId(access_token, text, style):
       return resp.json()['data']['taskId']
     
     print(f'绘画任务失败,返回msg: {data["msg"]}') # 请求失败的消息提示
-    return -1
+    return None
     
 
 # 获取绘画的结果
@@ -59,5 +60,5 @@ async def get_img(access_token, taskId):
         return await get_img(access_token, taskId)
     
     print(f'绘画任务失败,返回msg: {data["msg"]}') # 请求失败的消息提示    
-    return -1
+    return None
   
