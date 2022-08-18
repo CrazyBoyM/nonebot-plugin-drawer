@@ -20,11 +20,13 @@ nb plugin install nonebot-plugin-drawer
 ```
 wenxin_ak = "xxxxxxxxxxxxxxxx"
 wenxin_sk = "xxxxxxxxxxxxxxxx"
-cd_time = 300 # 技能冷却时间，以秒为单位
-image_count: int = 3  # 画画的图片数量
+wenxin_cd_time = 300 # 技能冷却时间，以秒为单位
+wenxin_image_count = 3 # 画画的图片数量
+wenxin_manager_list = ["123456789", "98765432"] # 管理员列表(不触发冷却时间限制)
 ```
 文心的ak和sk申请链接：https://wenxin.baidu.com/younger/apiDetail?id=20008
 ### 使用方法
+触发菜单命令：画画帮助
 当前支持油画、水彩画、卡通画、粉笔画、儿童画、蜡笔画, 主要擅长风景写意画，请尽量给定比较明确的意象  
 如：油画 江上落日与晚霞
 

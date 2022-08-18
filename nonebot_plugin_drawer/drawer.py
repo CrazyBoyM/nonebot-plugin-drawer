@@ -32,8 +32,8 @@ async def get_taskId(access_token, text, style):
     resp = await client.post(url, data=payload)
     data = resp.json()
     print(data)
-    if resp.json()['code'] == 0: # 请求成功
-      return resp.json()['data']['taskId']
+    if data['code'] == 0: # 请求成功
+      return data['data']['taskId']
     
     print(f'绘画任务失败,返回msg: {data["msg"]}') # 请求失败的消息提示
     return None
@@ -50,10 +50,9 @@ async def get_img(access_token, taskId):
     resp = await client.post(url, data=payload)
     data = resp.json()
     print(data)
-    data = resp.json()['data']
-    if resp.json()['code'] == 0: # 请求成功
-      if data['status'] == 1: # status为1，表明绘画完成
-        return data['imgUrls']
+    if data['code'] == 0: # 请求成功
+      if data['data']['status'] == 1: # status为1，表明绘画完成
+        return data['data']['imgUrls']
       else:
         # 10s后再次请求
         await asyncio.sleep(10)

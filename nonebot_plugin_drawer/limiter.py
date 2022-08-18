@@ -17,5 +17,5 @@ class FreqLimiter:
     def left_time(self, key) -> float:
         return self.next_time[key] - time.time()
 
-cd_time = wenxin_config.cd_time
+cd_time = wenxin_config.wenxin_cd_time
 limiter = FreqLimiter(cd_time)
