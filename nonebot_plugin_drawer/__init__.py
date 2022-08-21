@@ -21,7 +21,7 @@ async def _(matcher: Matcher, event: GroupMessageEvent, command = RawCommand(), 
     # 判断用户是否触发频率限制
     user_id = event.user_id
     managers = wenxin_config.wenxin_manager_list # 管理员列表(不触发冷却时间限制)
-    if not (user_id in managers) and not limiter.check(user_id):
+    if not limiter.check(user_id):
         left_time = limiter.left_time(user_id)
         await matcher.finish(f'咦，人类，你刚画了一次唉。需要等待{left_time}秒再找俺画画！')
         return 
@@ -44,7 +44,8 @@ async def _(matcher: Matcher, event: GroupMessageEvent, command = RawCommand(), 
             await matcher.finish(f'主题“{text}”违规，请重新给定任务描述')
             return      
         
-        limiter.start_cd(event.user_id) # 启动冷却时间限制
+        if not str(user_id) in managers: 
+            limiter.start_cd(user_id) # 启动冷却时间限制
         await asyncio.sleep(70) # 模型画画大概要70秒，等待一会儿
         images = await get_img(access_token, taskId)
         if images == None:
