@@ -27,7 +27,6 @@ async def _(matcher: Matcher, event: GroupMessageEvent, command = RawCommand(), 
         return 
     
     # 启动画画任务
-    limiter.start_cd(event.user_id)
     command_str = str(command)
     style = '油画' # 绘画时style默认为油画
     style_list = ['油画', '水彩', '卡通', '粉笔画', '儿童画', '蜡笔画']
@@ -40,12 +39,12 @@ async def _(matcher: Matcher, event: GroupMessageEvent, command = RawCommand(), 
     
     try:
         access_token = await get_token()
-        
         taskId = await get_taskId(access_token, text, style)
         if taskId == None:
             await matcher.finish(f'主题“{text}”违规，请重新给定任务描述')
-            return
-    
+            return      
+        
+        limiter.start_cd(event.user_id) # 启动冷却时间限制
         await asyncio.sleep(70) # 模型画画大概要70秒，等待一会儿
         images = await get_img(access_token, taskId)
         if images == None:
