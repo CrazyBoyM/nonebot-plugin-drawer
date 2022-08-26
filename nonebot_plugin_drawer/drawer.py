@@ -22,7 +22,7 @@ async def get_token():
 
 # 获取绘画的任务id
 async def get_taskId(access_token, text, style):
-  url = "https://wenxin.baidu.com/younger/portal/api/rest/1.0/ernievilg/v1/txt2img"
+  url = "https://wenxin.baidu.com/younger/portal/api/rest/1.0/ernievilg/v1/txt2img?from=baicai"
   payload = {
     'access_token': access_token,
     'text': text,
@@ -41,7 +41,7 @@ async def get_taskId(access_token, text, style):
 
 # 获取绘画的结果
 async def get_img(access_token, taskId):
-  url = "https://wenxin.baidu.com/younger/portal/api/rest/1.0/ernievilg/v1/getImg"
+  url = "https://wenxin.baidu.com/younger/portal/api/rest/1.0/ernievilg/v1/getImg?from=baicai"
   payload={
     'access_token': access_token,
     'taskId': taskId
