@@ -52,7 +52,11 @@ async def _(matcher: Matcher, event: GroupMessageEvent, command = RawCommand(), 
             await matcher.finish(f'无法绘制主题为“{text}”的{style}!')
             return
         
-        image_count = wenxin_config.wenxin_image_count # 图片数量
+        image_count = wenxin_config.wenxin_image_count # 每次发送的图片数量
+        # 判断图片数量是否少于配置的图片数量
+        if len(images) < image_count:
+            image_count = len(images)
+            
         msg = Message(f'文心原创绘画：主题为“{text}”的{style}') 
         for i in range(image_count): 
             msg += MessageSegment.image(images[i]['image'])
