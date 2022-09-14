@@ -4,7 +4,7 @@ from .config import wenxin_config
 
 # 获取access_token
 async def get_token():
-  url = "https://wenxin.baidu.com/younger/portal/api/oauth/token"
+  url = "https://wenxin.baidu.com/younger/portal/api/oauth/token?from=baicai"
   async with httpx.AsyncClient(verify=False, timeout=None) as client:
     resp = await client.post(
       url,
@@ -54,8 +54,8 @@ async def get_img(access_token, taskId):
       if data['data']['status'] == 1: # status为1，表明绘画完成
         return data['data']['imgUrls']
       else:
-        # 10s后再次请求
-        await asyncio.sleep(10)
+        # 5s后再次请求
+        await asyncio.sleep(5)
         return await get_img(access_token, taskId)
     
     print(f'绘画任务失败,返回msg: {data["msg"]}') # 请求失败的消息提示    

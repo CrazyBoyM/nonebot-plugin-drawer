@@ -23,7 +23,7 @@ async def _(matcher: Matcher, event: GroupMessageEvent, command = RawCommand(), 
     managers = wenxin_config.wenxin_manager_list # 管理员列表(不触发冷却时间限制)
     if not limiter.check(user_id):
         left_time = limiter.left_time(user_id)
-        await matcher.finish(f'咦，人类，你刚画了一次唉。需要等待{left_time}秒再找俺画画！')
+        await matcher.finish(f'咦，人类，你刚画了一次唉。需要等待{left_time}秒再找俺画画！冷却期间可临时到网页（https://wenxin.baidu.com/moduleApi/ernieVilg?from=baicai）进行体验哦')
         return 
     
     # 启动画画任务
@@ -46,7 +46,7 @@ async def _(matcher: Matcher, event: GroupMessageEvent, command = RawCommand(), 
         
         if not str(user_id) in managers: 
             limiter.start_cd(user_id) # 启动冷却时间限制
-        await asyncio.sleep(70) # 模型画画大概要70秒，等待一会儿
+        await asyncio.sleep(30) # 模型画画大概要30秒，等待一会儿
         images = await get_img(access_token, taskId)
         if images == None:
             await matcher.finish(f'无法绘制主题为“{text}”的{style}!')
