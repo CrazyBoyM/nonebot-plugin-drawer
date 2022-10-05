@@ -8,13 +8,13 @@ from .drawer import get_token, get_taskId, get_img
 from .limiter import limiter
 from .config import wenxin_config
 
-drawer = on_command("画画", aliases={'画画帮助', '油画', '水彩画', '卡通画', '粉笔画', '儿童画', '蜡笔画'}, priority=5)
+drawer = on_command("画画", aliases={'画画帮助', '古风' , '油画', '水彩画', '卡通画', '二次元', '浮世绘', '蒸汽波艺术', 'low poly', '像素风格', '概念艺术', '未来主义', '赛博朋克', '写实风格', '洛丽塔风格', '巴洛克风格', '超现实主义'}, priority=5, block=True)
 
 @drawer.handle()
 async def _(matcher: Matcher, event: GroupMessageEvent, command = RawCommand(), args = CommandArg()):
     # 判断是否触发帮助 或 绘画主题任务描述为空
     if  command == '画画帮助' or str(args).strip() == '': 
-        help_msg = '当前支持油画、水彩画、卡通画、粉笔画、儿童画、蜡笔画\n主要擅长风景写意画,请尽量给定“比较明确的意象”\n如: 油画 江上落日与晚霞'
+        help_msg = '当前支持古风、油画、水彩画、卡通画、二次元、浮世绘、蒸汽波艺术、low poly、像素风格、概念艺术、未来主义、赛博朋克、写实风格、洛丽塔风格、巴洛克风格、超现实主义\n主要擅长风景写意画,请尽量给定“比较明确的意象”\n如: 油画 江上落日与晚霞'
         await matcher.finish(help_msg)
         return
     
@@ -29,7 +29,7 @@ async def _(matcher: Matcher, event: GroupMessageEvent, command = RawCommand(), 
     # 启动画画任务
     command_str = str(command)
     style = '油画' # 绘画时style默认为油画
-    style_list = ['油画', '水彩', '卡通', '粉笔画', '儿童画', '蜡笔画']
+    style_list = ['古风' , '油画', '水彩画', '卡通画', '二次元', '浮世绘', '蒸汽波艺术', 'low poly', '像素风格', '概念艺术', '未来主义', '赛博朋克', '写实风格', '洛丽塔风格', '巴洛克风格', '超现实主义']
     for keyword in style_list:
         if keyword in command_str:
             style = keyword
